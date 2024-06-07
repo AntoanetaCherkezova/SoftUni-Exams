@@ -1,0 +1,56 @@
+function cafe(input) {
+    const baristas = {};
+  
+    function makeCoffee(baristaName, shift, coffeeType) {
+      if (baristas[baristaName] && baristas[baristaName].shift === shift && baristas[baristaName].drinks.includes(coffeeType)) {
+        console.log(`${baristaName} has prepared a ${coffeeType} for you!`);
+      } else {
+        console.log(`${baristaName} is not available to prepare a ${coffeeType}.`);
+      }
+    }
+  
+    function shiftChange (baristaName, newShift) {
+      baristas[baristaName].shift = newShift;
+      console.log(`${baristaName} has updated his shift to: ${newShift}`);
+    }
+  
+    function coffeTypeLearn(baristaName, newCoffeeType) {
+      if (baristas[baristaName] && baristas[baristaName].drinks.includes(newCoffeeType)) {
+        console.log(`${baristaName} knows how to make ${newCoffeeType}.`);
+      } else {
+        baristas[baristaName].drinks.push(newCoffeeType);
+        console.log(`${baristaName} has learned a new coffee type: ${newCoffeeType}.`);
+      }
+    }
+  
+    function printBaristas() {
+      for (const [name, details] of Object.entries(baristas)) {
+        const { shift, drinks } = details;
+        console.log(`Barista: ${name}, Shift: ${shift}, Drinks: ${drinks.join(', ')}`);
+      }
+    }
+  
+    const n = parseInt(input[0]);
+    for (let i = 1; i <= n; i++) {
+      const [name, shift, drinkTypes] = input[i].split(' ');
+      baristas[name] = { shift, drinks: drinkTypes.split(',') };
+    }
+  
+    for (let i = n + 1; i < input.length; i++) {
+      const [action, baristaName, argument1, argument2] = input[i].split(' / ');
+  
+      switch (action) {
+        case 'Prepare':
+          makeCoffee(baristaName, argument1, argument2);
+          break;
+        case 'Change Shift':
+          shiftChange(baristaName, argument1);
+          break;
+        case 'Learn':
+          coffeTypeLearn(baristaName, argument1);
+          break;
+      }
+    }
+  
+    printBaristas();
+  }

@@ -1,0 +1,61 @@
+function initializeExpenseTracker() {
+    const inputExpense = document.getElementById('expense');
+    const inputAmount = document.getElementById('amount');
+    const inputDate = document.getElementById('date');
+    const addBtn = document.getElementById('add-btn');
+    const previewList = document.getElementById('preview-list');
+    const expensesList = document.getElementById('expenses-list');
+    const deleteBtn = document.querySelector('.delete');
+ 
+    addBtn.addEventListener('click', addExpense);
+    previewList.addEventListener('click', handlePreviewListClick);
+    deleteBtn.addEventListener('click', () => location.reload());
+ 
+    function addExpense() {
+        const expense = inputExpense.value.trim();
+        const amount = inputAmount.value.trim();
+        const date = inputDate.value.trim();
+ 
+        if (expense && amount && date) {
+            const li = document.createElement('li');
+            li.innerHTML = `${expense} - ${amount} - ${date} 
+                <button class="edit">Edit</button> 
+                <button class="ok">Ok</button>`;
+ 
+            previewList.appendChild(li);
+            addBtn.disabled = true;
+            clearInputs();
+        }
+    }
+ 
+    function handlePreviewListClick(e) {
+        if (e.target.className === 'edit') {
+            editExpense(e.target.parentElement);
+        } else if (e.target.className === 'ok') {
+            addExpenseToExpensesList(e.target.parentElement);
+        }
+    }
+ 
+    function editExpense(li) {
+        const details = li.textContent.split(' - ');
+        inputExpense.value = details[0];
+        inputAmount.value = details[1];
+        inputDate.value = details[2].split(' ')[0];
+ 
+        previewList.removeChild(li);
+        addBtn.disabled = false;
+    }
+ 
+    function addExpenseToExpensesList(li) {
+        li.removeChild(li.querySelector('.edit'));
+        li.removeChild(li.querySelector('.ok'));
+        expensesList.appendChild(li);
+        addBtn.disabled = false;
+    }
+ 
+    function clearInputs() {
+        inputExpense.value = '';
+        inputAmount.value = '';
+        inputDate.value = '';
+    }
+}

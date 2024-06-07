@@ -1,0 +1,233 @@
+
+html {
+    font-family: 'PT Sans',sans-serif;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    height: 600px;
+
+}
+.header:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('./images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
+    z-index: -1;
+
+}
+
+/* .header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+}  */
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 100px 0px 100px;
+    width: 100%;
+}
+
+.logo {
+    width: 100px;
+    padding: 10px;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.nav-bar>li>a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.section-hero-banner {
+    color: #000;
+    font-size: 1.2em;
+}
+
+.section-hero-banner a {
+    color: #000;
+}
+
+.section-hero-banner .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4em 2em;
+    height: 25em;
+}
+
+.section-hero-banner h2 {
+    font-size: 2.3em;
+    font-weight: bold;
+}
+
+.section-hero-banner .container p {
+    text-align: center;
+    font-weight: bold;
+}
+
+.section-hero-banner .container a {
+display: block;
+text-decoration: none;
+background: #fff;
+color: black;
+margin-top: 1em;
+padding: 0.5em 1em;
+border-radius: 0.3em;
+}
+
+/* ------------------------------ main ----------------------------- */
+
+.section-columns .container-blue {
+    padding: 2em;
+    background-color: #60acc1;
+}
+
+.section-columns .section-header {
+    text-align: center;
+}
+
+.section-columns .section-content {
+    display: flex;
+    gap: 2em;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.section-columns .section-article-one {
+    display: flex;
+    padding-top: 2em;
+    align-items: center;
+    justify-content: center;   
+}
+
+.section-article-one .media{
+    width: 50%;
+}
+
+.text {
+    background-color: white;
+    flex: 1;
+    padding-top: 2.7em;
+    padding-bottom: 2.7em;   
+}
+
+.text p {
+text-align: left;
+
+}
+
+.img img {
+    width: 115px;
+    height: 115px;
+}
+
+.section-columns .container-blue-two {
+    padding: 2em;
+    background-color: #60acc1;
+}
+
+.section-columns .section-article {
+    width: 650px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-features {
+    background: #fff;
+    padding-bottom: 2em;
+}
+
+.section-features .section-content {
+    padding: 6em 6em;
+}
+
+
+.section-features img {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.section-features h4 {
+    font-weight: bold;
+    color: #67686b;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.section-content {
+    padding-bottom: 2em;
+}
+
+.section-content .media {
+    overflow: hidden;
+    border-radius: 0.3em;
+    box-shadow: 
+    0 0 1.2em 0.2em rgb(0, 0, 0, 0.3),
+    0 0 0.3em 0.1em rgb(0, 0, 0, 0.3) inset;
+    
+}
+
+.section-content p {
+    color: #797372;
+    padding: 0 2em;
+    margin-top: 1em;
+}
+
+/* ------------------------------ section and footer ----------------------------- */
+
+.about-us {
+    padding: 2em;
+    text-align: center;
+    color: #5e5f62;
+    height: 300px;
+
+}
+
+.about-us h3{
+    font-size: 1.5em;
+}
+
+.italic{
+    font-style: italic;
+    padding-bottom: 4em;
+}
+
+.about-us p {
+    text-align: center;
+    padding-left: 8em;
+    padding-right: 8em;
+}
+
+
+.section-site-footer {
+    background: #2d333c;
+}
+
+.section-site-footer p {
+    text-align: center;
+    color: white;
+    padding: 0.5em;
+}
